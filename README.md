@@ -1,11 +1,11 @@
 <div align="center">
 
-# 🖥️ TTYD Over Terminal
-<img src="assets/icon.png" alt="TTYD Over Terminal Icon" width="120" height="120" />
+# 🖥️ TTYD Client
+<img src="assets/icon.png" alt="TTYD Client Icon" width="120" height="120" />
 
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/krypton-byte/ttyd-over-terminal)
+[![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-lightgrey.svg)](https://github.com/krypton-byte/ttyd-client)
 
 **A cross-platform terminal client for TTYD WebSocket connections**
 
@@ -19,7 +19,7 @@
 
 ### 📖 Overview
 
-TTYD Over Terminal is a powerful, cross-platform terminal client that enables seamless connections to [ttyd](https://github.com/tsl0922/ttyd) servers via WebSocket. It provides a native terminal experience with full support for escape sequences, special keys, and terminal multiplexers like tmux/byobu.
+TTYD Client is a powerful, cross-platform terminal client that enables seamless connections to [ttyd](https://github.com/tsl0922/ttyd) servers via WebSocket. It provides a native terminal experience with full support for escape sequences, special keys, and terminal multiplexers like tmux/byobu.
 
 ### ✨ Features
 
@@ -36,8 +36,8 @@ TTYD Over Terminal is a powerful, cross-platform terminal client that enables se
 #### From Source
 
 ```bash
-git clone https://github.com/krypton-byte/ttyd-over-terminal.git
-cd ttyd-over-terminal
+git clone https://github.com/krypton-byte/ttyd-client.git
+cd ttyd-client
 pip install -r requirements.txt
 ```
 
@@ -161,7 +161,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 📖 Gambaran Umum
 
-TTYD Over Terminal adalah klien terminal lintas platform yang kuat, memungkinkan koneksi yang mulus ke server [ttyd](https://github.com/tsl0922/ttyd) melalui WebSocket. Ini menyediakan pengalaman terminal native dengan dukungan penuh untuk escape sequences, tombol khusus, dan terminal multiplexer seperti tmux/byobu.
+TTYD Client adalah klien terminal lintas platform yang kuat, memungkinkan koneksi yang mulus ke server [ttyd](https://github.com/tsl0922/ttyd) melalui WebSocket. Ini menyediakan pengalaman terminal native dengan dukungan penuh untuk escape sequences, tombol khusus, dan terminal multiplexer seperti tmux/byobu.
 
 ### ✨ Fitur
 
@@ -178,8 +178,8 @@ TTYD Over Terminal adalah klien terminal lintas platform yang kuat, memungkinkan
 #### Dari Source
 
 ```bash
-git clone https://github.com/krypton-byte/ttyd-over-terminal.git
-cd ttyd-over-terminal
+git clone https://github.com/krypton-byte/ttyd-client.git
+cd ttyd-client
 pip install -r requirements.txt
 ```
 
@@ -303,7 +303,7 @@ Proyek ini dilisensikan di bawah MIT License - lihat file [LICENSE](LICENSE) unt
 
 ### 📖 概述
 
-TTYD Over Terminal 是一个强大的跨平台终端客户端，可通过 WebSocket 无缝连接到 [ttyd](https://github.com/tsl0922/ttyd) 服务器。它提供原生终端体验，完全支持转义序列、特殊键和终端复用器（如 tmux/byobu）。
+TTYD Client 是一个强大的跨平台终端客户端，可通过 WebSocket 无缝连接到 [ttyd](https://github.com/tsl0922/ttyd) 服务器。它提供原生终端体验，完全支持转义序列、特殊键和终端复用器（如 tmux/byobu）。
 
 ### ✨ 特性
 
@@ -320,8 +320,8 @@ TTYD Over Terminal 是一个强大的跨平台终端客户端，可通过 WebSoc
 #### 从源码安装
 
 ```bash
-git clone https://github.com/krypton-byte/ttyd-over-terminal.git
-cd ttyd-over-terminal
+git clone https://github.com/krypton-byte/ttyd-client.git
+cd ttyd-client
 pip install -r requirements.txt
 ```
 
@@ -445,7 +445,7 @@ python -m ttyd_cli --url http://localhost:7681 -c byobu
 
 ### 🌟 Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=krypton-byte/ttyd-over-terminal&type=Date)](https://star-history.com/#krypton-byte/ttyd-over-terminal&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=krypton-byte/ttyd-client&type=Date)](https://star-history.com/#krypton-byte/ttyd-client&Date)
 
 **Made with ❤️ by [krypton-byte](https://github.com/krypton-byte)**
 
