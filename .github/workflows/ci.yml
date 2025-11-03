@@ -49,13 +49,8 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -A
-      
-      - name: Push changes
-        if: steps.verify-changed-files.outputs.changed == 'true'
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          git commit -m "style: auto-fix ruff issues"
+          git push
 
   # test:
   #   name: Test on Python ${{ matrix.python-version }} - ${{ matrix.os }}
