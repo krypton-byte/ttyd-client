@@ -2,9 +2,7 @@
 Tests for CLI module.
 """
 
-import sys
 import unittest
-from io import StringIO
 from unittest.mock import Mock, patch
 
 from ttyd_cli.cli import main

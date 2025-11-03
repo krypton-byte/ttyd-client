@@ -8,7 +8,6 @@ from unittest.mock import Mock, patch
 from ttyd_cli.auth import authenticate
 from ttyd_cli.exceptions import InvalidAuthorization
 
-
 url = "http://localhost:7681"
 
 class TestAuthentication(unittest.TestCase):
