@@ -1,6 +1,6 @@
 [project]
 name = "ttyd-client"
-version = "1.0.0"
+version = "0.1.0"
 description = "A Python client library for connecting to TTYD (tty over WebSocket) servers with full terminal support, authentication, and cross-platform compatibility"
 readme = "README.md"
 requires-python = ">=3.12"
