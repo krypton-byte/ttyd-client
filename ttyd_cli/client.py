@@ -20,9 +20,7 @@ from .utils import get_terminal_size, IS_WINDOWS
 
 if not IS_WINDOWS:
     from signal import signal, SIGWINCH
-else:
-    import ctypes
-    from ctypes import wintypes
+
 
 class TTYDClient(websocket.WebSocketApp):
     """

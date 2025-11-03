@@ -16,7 +16,7 @@ sdist/
 var/
 wheels/
 *.egg
-
+.python-version
 # Virtual Environment
 venv/
 env/
