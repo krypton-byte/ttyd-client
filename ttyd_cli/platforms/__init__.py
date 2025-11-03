@@ -2,8 +2,8 @@
 Platform-specific terminal input handlers.
 """
 
-from .base import TerminalInputHandler
 from ..utils import IS_WINDOWS
+from .base import TerminalInputHandler
 
 if IS_WINDOWS:
     from .windows import WindowsInputHandler as InputHandler

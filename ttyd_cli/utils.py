@@ -3,25 +3,27 @@ Utility functions for terminal operations.
 """
 
 import platform
-from typing import Tuple
 
-IS_WINDOWS: bool = platform.system() == 'Windows'
+IS_WINDOWS: bool = platform.system() == "Windows"
 
 if IS_WINDOWS:
     from shutil import get_terminal_size as _get_size
-    def get_size() -> Tuple[int, int]:
+
+    def get_size() -> tuple[int, int]:
         size = _get_size()
         return (size.columns, size.lines)
 else:
     from os import get_terminal_size as _get_size
-    def get_size() -> Tuple[int, int]:
+
+    def get_size() -> tuple[int, int]:
         size = _get_size()
         return (size.columns, size.lines)
 
-def get_terminal_size(fallback: Tuple[int, int]=(80, 24)) -> Tuple[int, int]:
+
+def get_terminal_size(fallback: tuple[int, int] = (80, 24)) -> tuple[int, int]:
     """
     Get terminal size with a fallback option.
-    
+
     Args:
         fallback: Tuple[int, int] - Fallback size (columns, rows)
 

@@ -52,42 +52,42 @@ pip install -r requirements.txt
 #### Basic Connection
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681
+ttyd-client http://localhost:7681
 ```
 
 #### With Authentication
 
 ```bash
-python -m ttyd_cli --url https://example.com:7681 --credential "username:password"
+ttyd-client https://example.com:7681 --credential "username:password"
 ```
 
 #### Disable SSL Verification
 
 ```bash
-python -m ttyd_cli --url https://example.com:7681 --no-verify
+ttyd-client https://example.com:7681 --no-verify
 ```
 
 #### Execute Command on Connect
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 -c "ls -la"
+ttyd-client http://localhost:7681 --cmd "ls -la"
 ```
 
 #### Pass Arguments to Remote Shell
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 bash --login
+ttyd-client http://localhost:7681 --args bash --login
 ```
 
 ### 🛠️ Command Line Options
 
 | Option | Description |
 |--------|-------------|
-| `--url` | TTYD server URL (required) |
+| `url` | TTYD server URL (required) |
 | `--credential` | Authentication in format "username:password" |
 | `--no-verify` | Disable SSL certificate verification |
-| `-c` | Command to execute on connection |
-| `args` | Arguments to pass to remote shell |
+| `--cmd` | Command to execute on connection |
+| `--args` | Arguments to pass to remote shell |
 
 ### 🏗️ Architecture
 
@@ -132,19 +132,19 @@ This prevents terminal responses from being interpreted as keyboard input.
 ttyd -p 7681 bash
 
 # Connect with client
-python -m ttyd_cli --url http://localhost:7681
+ttyd-client --url http://localhost:7681
 ```
 
 #### Secure Connection with SSL
 
 ```bash
-python -m ttyd_cli --url https://secure-server.com:443 --credential "admin:secret"
+ttyd-client --url https://secure-server.com:443 --credential "admin:secret"
 ```
 
 #### Use with Byobu/Tmux
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 -c byobu
+ttyd-client --url http://localhost:7681 --cmd byobu
 ```
 
 ### 🤝 Contributing
@@ -194,42 +194,42 @@ pip install -r requirements.txt
 #### Koneksi Dasar
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681
+ttyd-client --url http://localhost:7681
 ```
 
 #### Dengan Autentikasi
 
 ```bash
-python -m ttyd_cli --url https://example.com:7681 --credential "username:password"
+ttyd-client --url https://example.com:7681 --credential "username:password"
 ```
 
 #### Nonaktifkan Verifikasi SSL
 
 ```bash
-python -m ttyd_cli --url https://example.com:7681 --no-verify
+ttyd-client --url https://example.com:7681 --no-verify
 ```
 
 #### Jalankan Perintah Saat Koneksi
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 -c "ls -la"
+ttyd-client --url http://localhost:7681 --cmd "ls -la"
 ```
 
 #### Kirim Argumen ke Remote Shell
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 bash --login
+ttyd-client --url http://localhost:7681 --args bash --login
 ```
 
 ### 🛠️ Opsi Command Line
 
 | Opsi | Deskripsi |
 |------|-----------|
-| `--url` | URL server TTYD (wajib) |
+| `url` | URL server TTYD (wajib) |
 | `--credential` | Autentikasi dengan format "username:password" |
 | `--no-verify` | Nonaktifkan verifikasi sertifikat SSL |
-| `-c` | Perintah yang dijalankan saat koneksi |
-| `args` | Argumen untuk dikirim ke remote shell |
+| `--cmd` | Perintah yang dijalankan saat koneksi |
+| `--args` | Argumen untuk dikirim ke remote shell |
 
 ### 🏗️ Arsitektur
 
@@ -274,19 +274,19 @@ Ini mencegah respons terminal ditafsirkan sebagai input keyboard.
 ttyd -p 7681 bash
 
 # Koneksi dengan client
-python -m ttyd_cli --url http://localhost:7681
+ttyd-client --url http://localhost:7681
 ```
 
 #### Koneksi Aman dengan SSL
 
 ```bash
-python -m ttyd_cli --url https://secure-server.com:443 --credential "admin:secret"
+ttyd-client --url https://secure-server.com:443 --credential "admin:secret"
 ```
 
 #### Gunakan dengan Byobu/Tmux
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 -c byobu
+ttyd-client --url http://localhost:7681 --cmd byobu
 ```
 
 ### 🤝 Kontribusi
@@ -336,42 +336,42 @@ pip install -r requirements.txt
 #### 基本连接
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681
+ttyd-client --url http://localhost:7681
 ```
 
 #### 使用身份验证
 
 ```bash
-python -m ttyd_cli --url https://example.com:7681 --credential "username:password"
+ttyd-client --url https://example.com:7681 --credential "username:password"
 ```
 
 #### 禁用 SSL 验证
 
 ```bash
-python -m ttyd_cli --url https://example.com:7681 --no-verify
+ttyd-client --url https://example.com:7681 --no-verify
 ```
 
 #### 连接时执行命令
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 -c "ls -la"
+ttyd-client --url http://localhost:7681 --cmd "ls -la"
 ```
 
 #### 向远程 Shell 传递参数
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 bash --login
+ttyd-client --url http://localhost:7681 --args bash --login
 ```
 
 ### 🛠️ 命令行选项
 
 | 选项 | 描述 |
 |------|------|
-| `--url` | TTYD 服务器 URL（必需）|
+| `url` | TTYD 服务器 URL（必需）|
 | `--credential` | 格式为 "username:password" 的身份验证 |
 | `--no-verify` | 禁用 SSL 证书验证 |
-| `-c` | 连接时执行的命令 |
-| `args` | 传递给远程 shell 的参数 |
+| `--cmd` | 连接时执行的命令 |
+| `--args` | 传递给远程 shell 的参数 |
 
 ### 🏗️ 架构
 
@@ -416,19 +416,19 @@ ttyd_cli/
 ttyd -p 7681 bash
 
 # 使用客户端连接
-python -m ttyd_cli --url http://localhost:7681
+ttyd-client --url http://localhost:7681
 ```
 
 #### 使用 SSL 的安全连接
 
 ```bash
-python -m ttyd_cli --url https://secure-server.com:443 --credential "admin:secret"
+ttyd-client --url https://secure-server.com:443 --credential "admin:secret"
 ```
 
 #### 与 Byobu/Tmux 一起使用
 
 ```bash
-python -m ttyd_cli --url http://localhost:7681 -c byobu
+ttyd-client --url http://localhost:7681 --cmd byobu
 ```
 
 ### 🤝 贡献

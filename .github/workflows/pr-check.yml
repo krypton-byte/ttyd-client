@@ -1,0 +1,40 @@
+name: PR Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  format-check:
+    name: Format and Lint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      
+      - name: Install ruff
+        run: pip install ruff
+      
+      - name: Run ruff format check
+        run: |
+          ruff format --check . || (echo "::error::Code formatting issues found. Run 'ruff format .' locally." && exit 1)
+      
+      - name: Run ruff lint
+        run: |
+          ruff check . || (echo "::error::Linting issues found. Run 'ruff check --fix .' locally." && exit 1)
+      
+      - name: Add PR comment on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ **Code Quality Check Failed**\n\nPlease run the following commands locally:\n```bash\nruff format .\nruff check --fix .\n```\nThen commit and push the changes.'
+            })
