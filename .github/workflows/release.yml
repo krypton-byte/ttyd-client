@@ -34,25 +34,30 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
       
+      - name: Configure git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+      
       - name: Bump version
         id: bump
         uses: callowayproject/bump-my-version@master
         env:
           BUMPVERSION_TAG: "true"
           BUMPVERSION_COMMIT: "true"
+          BUMPVERSION_PUSH: "true"
         with:
           args: ${{ inputs.bump-type }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      
       - name: Push changes
         if: steps.bump.outputs.bumped == 'true'
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
+          git add .
           git commit -m "chore: bump version to ${{ steps.bump.outputs.current-version }}"
           git push || true
           git push --tags || true
+        
+
 
   format-check:
     name: Code Formatting Check
