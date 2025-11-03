@@ -49,13 +49,6 @@ jobs:
         with:
           args: ${{ inputs.bump-type }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push changes
-        if: steps.bump.outputs.bumped == 'true'
-        run: |
-          git add .
-          git commit -m "chore: bump version to ${{ steps.bump.outputs.current-version }}"
-          git push || true
-          git push --tags || true
         
 
 
