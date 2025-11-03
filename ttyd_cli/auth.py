@@ -60,9 +60,7 @@ class WebPage(Session):
             raise InvalidAuthorization("Server not accessible")
 
 
-def authenticate(
-    url: str, credential: str | None = None, verify: bool = True
-) -> str | None:
+def authenticate(url: str, credential: str | None = None, verify: bool = True) -> str | None:
     """
     Authenticate with TTYD server and get token.
 

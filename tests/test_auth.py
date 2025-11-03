@@ -10,6 +10,7 @@ from ttyd_cli.exceptions import InvalidAuthorization
 
 url = "http://localhost:7681"
 
+
 class TestAuthentication(unittest.TestCase):
     """Test cases for authentication."""
 

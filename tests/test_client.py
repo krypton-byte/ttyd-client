@@ -15,9 +15,7 @@ class TestTTYDClient(unittest.TestCase):
     def setUp(self, mock_auth):
         """Set up test client."""
         mock_auth.return_value = "test_token"
-        self.client = TTYDClient(
-            url="http://localhost:7681", credential="user:pass", verify=False
-        )
+        self.client = TTYDClient(url="http://localhost:7681", credential="user:pass", verify=False)
 
     def test_client_initialization(self):
         """Test client initialization."""

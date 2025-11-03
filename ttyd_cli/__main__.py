@@ -39,9 +39,7 @@ def main() -> None:
         default=[],
         help="Arguments to pass to remote shell",
     )
-    parser.add_argument(
-        "-c", type=str, default="", help="Command to execute on connection"
-    )
+    parser.add_argument("-c", type=str, default="", help="Command to execute on connection")
 
     args = parser.parse_args()
 

@@ -127,9 +127,7 @@ class UnixInputHandler(TerminalInputHandler):
                             # Check for terminator
                             if ch == "\x07":  # BEL
                                 break
-                            if (
-                                ch == "\\" and len(buffer) >= 2 and buffer[-2] == "\x1b"
-                            ):  # ESC \
+                            if ch == "\\" and len(buffer) >= 2 and buffer[-2] == "\x1b":  # ESC \
                                 break
 
                             # Safety limit to prevent infinite loop
@@ -219,8 +217,6 @@ class UnixInputHandler(TerminalInputHandler):
         """
         if self.original_attrs:
             try:
-                termios.tcsetattr(
-                    sys.stdin.fileno(), termios.TCSADRAIN, self.original_attrs
-                )
+                termios.tcsetattr(sys.stdin.fileno(), termios.TCSADRAIN, self.original_attrs)
             except Exception:
                 pass
