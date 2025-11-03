@@ -5,6 +5,7 @@ TTYD WebSocket client implementation.
 from __future__ import annotations
 import sys
 import re
+import time
 from sys import stdout
 from typing import Optional, List
 from threading import Thread
@@ -19,7 +20,9 @@ from .utils import get_terminal_size, IS_WINDOWS
 
 if not IS_WINDOWS:
     from signal import signal, SIGWINCH
-
+else:
+    import ctypes
+    from ctypes import wintypes
 
 class TTYDClient(websocket.WebSocketApp):
     """
@@ -86,6 +89,11 @@ class TTYDClient(websocket.WebSocketApp):
         
         # Compile regex patterns for performance
         self._query_regex = re.compile(b'|'.join(self.QUERY_PATTERNS))
+        
+        # Windows resize monitoring
+        if IS_WINDOWS:
+            self._last_size: Optional[tuple] = None
+            self._resize_monitor_running: bool = False
     
     def _filter_output(self, data: bytes) -> bytes:
         """
@@ -119,6 +127,10 @@ class TTYDClient(websocket.WebSocketApp):
         if self._input_handler:
             self._input_handler.restore_terminal()
             self._input_handler.stop()
+        
+        # Stop Windows resize monitor
+        if IS_WINDOWS:
+            self._resize_monitor_running = False
         
         self.connected = False
     
@@ -176,6 +188,32 @@ class TTYDClient(websocket.WebSocketApp):
         # Convert newline to carriage return for terminal
         self.send('0' + ('\r' if c == '\n' else c))
     
+    def _start_windows_resize_monitor(self) -> None:
+        """
+        Start monitoring terminal size changes on Windows.
+        Runs in a separate thread and polls for size changes.
+        """
+        if not IS_WINDOWS:
+            return
+        
+        def monitor_resize():
+            self._resize_monitor_running = True
+            self._last_size = get_terminal_size()
+            
+            while self._resize_monitor_running and self.connected:
+                try:
+                    current_size = get_terminal_size()
+                    if current_size != self._last_size:
+                        self._last_size = current_size
+                        self._resize()
+                    time.sleep(0.5)  # Check every 500ms
+                except Exception:
+                    pass
+        
+        thread = Thread(target=monitor_resize)
+        thread.daemon = True
+        thread.start()
+    
     def _on_open(self, ws: websocket.WebSocketApp) -> None:
         """
         Handle WebSocket open event.
@@ -192,6 +230,9 @@ class TTYDClient(websocket.WebSocketApp):
                 signal(SIGWINCH, self._resize)
             except Exception:
                 pass
+        else:
+            # Start resize monitoring for Windows
+            self._start_windows_resize_monitor()
         
         # Send initial terminal size
         self._resize()
