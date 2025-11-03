@@ -51,8 +51,8 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add -A
           git commit -m "chore: bump version to ${{ steps.bump.outputs.current-version }}"
-          git push
-          git push --tags
+          git push || true
+          git push --tags || true
 
   format-check:
     name: Code Formatting Check
