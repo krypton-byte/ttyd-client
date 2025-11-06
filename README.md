@@ -33,12 +33,10 @@ TTYD Client is a powerful, cross-platform terminal client that enables seamless 
 
 ### 📦 Installation
 
-#### From Source
+#### From PyPI
 
 ```bash
-git clone https://github.com/krypton-byte/ttyd-client.git
-cd ttyd-client
-pip install -r requirements.txt
+pip install ttyd-client
 ```
 
 #### Requirements
@@ -175,12 +173,10 @@ TTYD Client adalah klien terminal lintas platform yang kuat, memungkinkan koneks
 
 ### 📦 Instalasi
 
-#### Dari Source
+#### Install dari PyPI
 
 ```bash
-git clone https://github.com/krypton-byte/ttyd-client.git
-cd ttyd-client
-pip install -r requirements.txt
+pip install ttyd-client
 ```
 
 #### Persyaratan
@@ -317,12 +313,10 @@ TTYD Client 是一个强大的跨平台终端客户端，可通过 WebSocket 无
 
 ### 📦 安装
 
-#### 从源码安装
+#### 从 PyPI 安装
 
 ```bash
-git clone https://github.com/krypton-byte/ttyd-client.git
-cd ttyd-client
-pip install -r requirements.txt
+pip install ttyd-client
 ```
 
 #### 要求
