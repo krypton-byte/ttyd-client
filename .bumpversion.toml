@@ -19,4 +19,7 @@ commit_args = ""
 setup_hooks = []
 pre_commit_hooks = []
 post_commit_hooks = []
+files = [
+    { filename = "pyproject.toml", search = 'dynamic = ["version"]', replace = 'version = "{new_version}"' },
+]
 "ttyd_cli/__init__.py" = { search = '__version__ = "{current_version}"', replace = '__version__ = "{new_version}"'}
