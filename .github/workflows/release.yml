@@ -49,22 +49,6 @@ jobs:
         with:
           args: ${{ inputs.bump-type }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-        
-
-
-  format-check:
-    name: Code Formatting Check
-    needs: [bump-version]
-    if: always() && (needs.bump-version.result == 'success' || needs.bump-version.result == 'skipped')
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      
       - name: Install uv
         uses: astral-sh/setup-uv@v4
         with:
@@ -78,23 +62,11 @@ jobs:
       
       - name: Run ruff lint check
         run: uvx ruff check .
-
-  build:
-    name: Build Distribution
-    needs: format-check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      
+  
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      
-      - name: Install uv
-        uses: astral-sh/setup-uv@v4
-        with:
-          enable-cache: true
       
       - name: Build package
         run: uv build
