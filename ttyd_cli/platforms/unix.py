@@ -106,7 +106,7 @@ class UnixInputHandler(TerminalInputHandler):
                 if next_ch == "[":
                     # Read until we find a terminator
                     while True:
-                        if select.select([sys.stdin], [], [], 0.01)[0]:
+                        if select.select([sys.stdin], [], [], 0.05)[0]:
                             ch = sys.stdin.read(1)
                             buffer.append(ch)
 
@@ -120,7 +120,7 @@ class UnixInputHandler(TerminalInputHandler):
                 elif next_ch == "]":
                     # Read until ESC \ (ST) or BEL (\x07)
                     while True:
-                        if select.select([sys.stdin], [], [], 0.01)[0]:
+                        if select.select([sys.stdin], [], [], 0.05)[0]:
                             ch = sys.stdin.read(1)
                             buffer.append(ch)
 
@@ -140,7 +140,7 @@ class UnixInputHandler(TerminalInputHandler):
                 elif next_ch == "P":
                     # Read until ESC \ (ST)
                     while True:
-                        if select.select([sys.stdin], [], [], 0.01)[0]:
+                        if select.select([sys.stdin], [], [], 0.05)[0]:
                             ch = sys.stdin.read(1)
                             buffer.append(ch)
 
@@ -156,7 +156,7 @@ class UnixInputHandler(TerminalInputHandler):
                 elif next_ch == "_":
                     # Read until ESC \ (ST)
                     while True:
-                        if select.select([sys.stdin], [], [], 0.01)[0]:
+                        if select.select([sys.stdin], [], [], 0.05)[0]:
                             ch = sys.stdin.read(1)
                             buffer.append(ch)
 
@@ -171,7 +171,7 @@ class UnixInputHandler(TerminalInputHandler):
                 # OSC or other sequences starting with O
                 elif next_ch == "O":
                     # Function keys like F1-F4 send \x1bOP, \x1bOQ, etc
-                    if select.select([sys.stdin], [], [], 0.01)[0]:
+                    if select.select([sys.stdin], [], [], 0.05)[0]:
                         ch = sys.stdin.read(1)
                         buffer.append(ch)
 
