@@ -19,3 +19,4 @@ commit_args = ""
 setup_hooks = []
 pre_commit_hooks = []
 post_commit_hooks = []
+"ttyd_cli/__init__.py" = { search = '__version__ = "{current_version}"', replace = '__version__ = "{new_version}"'}
